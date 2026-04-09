@@ -1,0 +1,12 @@
+{
+  "name": "arogyamill",
+  "version": "1.0.0",
+  "description": "Fresh Flour for Healthy Living",
+  "scripts": {
+    "build": "echo Build complete",
+    "start": "echo Server would start here"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
