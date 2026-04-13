@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArogyaMill - Farm to Chakki - Fresh Flour Made to Order</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-padding-top: 150px;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Trebuchet MS', sans-serif;
+            background: radial-gradient(circle at top center, #fbf6ec, #ede0cc 40%, #e0d1bc 100%);
+            line-height: 1.65;
+            color: #2b2e34;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1e3724 0%, #4c5f37 42%, #b38f55 100%);
+            color: white;
+            padding: 0.4rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.16);
+            border-bottom: 1px solid rgba(255,255,255,0.18);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo-img {
+            height: 130px;
+            width: auto;
+            max-width: 220px;
+            filter: drop-shadow(0 12px 30px rgba(0,0,0,0.2));
+        }
+        
+        header h1 {
+            display: none;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+        
+        nav {
+            background-color: transparent;
+            padding: 0;
+            box-shadow: none;
+            display: flex;
+            align-items: center;
+            flex: 1;
+            justify-content: flex-end;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav li {
+            margin: 0;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 1rem 1.2rem;
+            display: block;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        
+        nav a:hover {
+            background-color: #d4a574;
+            color: #2d5a3d;
+        }
+        
+        .whatsapp-nav {
+            background-color: #25D366;
+        }
+        
+        .whatsapp-nav:hover {
+            background-color: #1da851;
+            color: white;
+        }
+        
+        .hero {
+            background: linear-gradient(180deg, rgba(26, 34, 28, 0.75), rgba(26, 34, 28, 0.25)), 
+                        url('images/AM_bg_img.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 460px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #f7f1e6;
+            padding: 0 1rem;
+        }
+        
+        .hero h1 {
+            font-size: 3.4rem;
+            margin: 0 0 0.75rem 0;
+            text-shadow: 4px 4px 12px rgba(0,0,0,0.6);
+            font-weight: 700;
+            letter-spacing: 2px;
+            font-family: 'Georgia', 'Times New Roman', serif;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin: 0.5rem 0;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.45);
+            font-weight: 500;
+            max-width: 760px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        section {
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .about {
+            background-color: rgba(255,255,255,0.95);
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(45, 47, 50, 0.08);
+            padding: 4rem 3rem;
+        }
+        
+        .products {
+            background-color: transparent;
+        }
+        
+        .contact {
+            background-color: rgba(255,255,255,0.95);
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(45, 47, 50, 0.08);
+            padding: 4rem 3rem;
+        }
+        
+        .whatsapp-section {
+            background: linear-gradient(135deg, #25D366 0%, #1da851 100%);
+            color: white;
+        }
+        
+        h2 {
+            color: #2d4231;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 2.1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-family: 'Georgia', serif;
+        }
+        
+        .whatsapp-section h2 {
+            color: white;
+        }
+        
+        h3 {
+            color: #3d7a4d;
+            font-weight: 600;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .product {
+            background: rgba(255,255,255,0.94);
+            padding: 1.8rem;
+            border-radius: 18px;
+            box-shadow: 0 18px 35px rgba(45, 47, 50, 0.08);
+            text-align: center;
+            transition: all 0.35s ease;
+            border: 1px solid rgba(145, 130, 99, 0.18);
+            backdrop-filter: blur(12px);
+        }
+        
+        .product:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 22px 44px rgba(45, 47, 50, 0.16);
+        }
+        
+        .product p {
+            color: #666;
+            margin-top: 0.5rem;
+        }
+        
+        .whatsapp-button {
+            background-color: #bea663;
+            color: #1f2c1f;
+            padding: 1rem 2.2rem;
+            font-size: 1.1rem;
+            border: 1px solid rgba(255,255,255,0.18);
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 1rem;
+            text-decoration: none;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.16);
+        }
+        
+        .whatsapp-button:hover {
+            background-color: #c7b779;
+            transform: scale(1.05);
+            color: #10210f;
+        }
+        
+        .contact-info {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .contact-info p {
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
+            color: #2d5a3d;
+            font-weight: 500;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, #1f3828 0%, #3c6b41 100%);
+            color: #f4efe4;
+            text-align: center;
+            padding: 1.75rem;
+            margin-top: 2rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            nav a {
+                padding: 0.75rem 0.8rem;
+                font-size: 0.85rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-section">
+            <picture>
+                <img src="images/ArogyaMill_TransparentLogo.png" alt="ArogyaMill Logo" class="logo-img" loading="lazy">
+            </picture>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#whatsapp" class="whatsapp-nav">📞 Order on WhatsApp</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="home" class="hero">
+        <div>
+            <h1>Farm to Chakki</h1>
+            <p>Premium stone-milled flour for soft chapati, fulka, and Indian home cooking.</p>
+            <p style="font-size: 1rem; margin-top: 1.5rem; letter-spacing: 0.7px; opacity: 0.95;">Stone-milled • Nutrient-rich • Crafted to order</p>
+        </div>
+    </section>
+    
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>At ArogyaMill, we are passionate about providing the highest quality fresh flour to our customers. Our commitment to traditional milling techniques ensures that every grain is processed with care, preserving its natural nutrients and flavors.</p>
+        <p>We source our grains from local farmers who share our dedication to sustainable and organic farming practices. From wheat to specialty flours, we offer a range that caters to all your culinary adventures.</p>
+    </section>
+    
+    <section id="products" class="products">
+        <h2>Our Products</h2>
+        <div class="products-grid">
+            <div class="product">
+                <h3>Whole Wheat Flour</h3>
+                <p>Nutritious and versatile flour perfect for soft chapatis, fulkas, and rotis.</p>
+            </div>
+            <div class="product">
+                <h3>Multi-Grain Flour</h3>
+                <p>Great for wholesome Indian breads and everyday family meals.</p>
+            </div>
+            <div class="product">
+                <h3>Organic Flour</h3>
+                <p>Chemical-free flour from organically grown grains, ideal for traditional rotis.</p>
+            </div>
+            <div class="product">
+                <h3>Specialty Flours</h3>
+                <p>Try our artisanal millet and gram flours for healthier Indian cooking.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="whatsapp" class="whatsapp-section">
+        <h2>📱 Order on WhatsApp</h2>
+        <p style="text-align: center; font-size: 1.1rem; margin: 1rem 0;">Place your order directly through WhatsApp for quick and convenient service!</p>
+        <p style="text-align: center; font-size: 1.3rem; font-weight: bold; margin: 1.5rem 0;">+91 9999999999</p>
+        <p style="text-align: center; margin: 1.5rem 0;">
+            <a href="https://wa.me/919999999999?text=Hi%20ArogyaMill%20%F0%9F%91%8B%20I%20would%20like%20to%20place%20an%20order" class="whatsapp-button" target="_blank">💬 Chat on WhatsApp</a>
+        </p>
+        <p style="text-align: center; font-size: 0.95rem; margin-top: 1rem; opacity: 0.9;">Available 24/7 for your orders and inquiries</p>
+    </section>
+    
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p style="text-align: center;">Get in touch with us for orders, inquiries, or to learn more about our fresh flour products.</p>
+        <div class="contact-info">
+            <p>📧 Email: <strong>support@arogyamill.com</strong></p>
+            <p>💬 WhatsApp: <strong>+91 9999999999</strong></p>
+            <p>📍 Address: 123 Flour Street, Mill Town, MT 12345</p>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2024 ArogyaMill. All rights reserved.</p>
+    </footer>
+</body>
+</html>
