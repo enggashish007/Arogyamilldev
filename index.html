@@ -39,7 +39,7 @@
         header {
             background: linear-gradient(135deg, #1e3724 0%, #4c5f37 42%, #b38f55 100%);
             color: white;
-            padding: 0.4rem 2rem;
+            padding: 0.2rem 1.2rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -57,9 +57,9 @@
         }
         
         .logo-img {
-            height: 130px;
+            height: 100px;
             width: auto;
-            max-width: 220px;
+            max-width: 180px;
             filter: drop-shadow(0 12px 30px rgba(0,0,0,0.2));
         }
         
@@ -97,7 +97,7 @@
         nav a {
             color: white;
             text-decoration: none;
-            padding: 1rem 1.2rem;
+            padding: 0.8rem 1rem;
             display: block;
             transition: all 0.3s ease;
             font-weight: 500;
@@ -119,37 +119,116 @@
         }
         
         .hero {
-            background: linear-gradient(180deg, rgba(26, 34, 28, 0.75), rgba(26, 34, 28, 0.25)), 
-                        url('images/AM_bg_img.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            min-height: 460px;
+            position: relative;
+            min-height: auto;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
             text-align: center;
             color: #f7f1e6;
-            padding: 0 1rem;
+            padding: 0;
+            background: transparent;
         }
-        
-        .hero h1 {
-            font-size: 3.4rem;
-            margin: 0 0 0.75rem 0;
-            text-shadow: 4px 4px 12px rgba(0,0,0,0.6);
-            font-weight: 700;
-            letter-spacing: 2px;
+
+        .slideshow-container {
+            position: relative;
+            width: min(100%, 900px);
+            max-width: 900px;
+            aspect-ratio: 16 / 9;
+            min-height: 380px;
+            max-height: 72vh;
+            border-radius: 26px;
+            overflow: hidden;
+            box-shadow: 0 22px 48px rgba(0,0,0,0.22);
+            background: transparent;
+            margin: 0 auto;
+        }
+
+        .slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1s ease;
+            z-index: 0;
+        }
+
+        .slide.active {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            background: transparent;
+        }
+
+        .slide-controls {
+            position: absolute;
+            left: 50%;
+            bottom: 1rem;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            gap: 0.65rem;
+            z-index: 3;
+            padding: 0.35rem 0.55rem;
+            background: rgba(0, 0, 0, 0.22);
+            border-radius: 999px;
+            backdrop-filter: blur(8px);
+        }
+
+        .slide-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.25);
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+        }
+
+        .slide-dot.active {
+            background: rgba(255, 255, 255, 0.95);
+            transform: scale(1.2);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(6, 19, 14, 0.15), rgba(6, 19, 14, 0.25));
+            pointer-events: none;
+        }
+
+        .hero-title {
+            position: absolute;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            max-width: 92%;
+        }
+
+        .hero-title h1,
+        .hero-title p {
+            margin: 0;
+        }
+
+        .hero-title h1 {
+            font-size: 3rem;
+            text-shadow: 4px 4px 14px rgba(0,0,0,0.7);
             font-family: 'Georgia', 'Times New Roman', serif;
+            letter-spacing: 1.8px;
         }
-        
-        .hero p {
-            font-size: 1.3rem;
-            margin: 0.5rem 0;
-            text-shadow: 2px 2px 6px rgba(0,0,0,0.45);
+
+        .hero-title p {
+            margin-top: 0.8rem;
+            font-size: 1.1rem;
             font-weight: 500;
-            max-width: 760px;
-            margin-left: auto;
-            margin-right: auto;
+            color: #f1eadf;
+            text-shadow: 2px 2px 12px rgba(0,0,0,0.55);
         }
         
         section {
@@ -334,10 +413,17 @@
     </header>
     
     <section id="home" class="hero">
-        <div>
-            <h1>Farm to Chakki</h1>
-            <p>Premium stone-milled flour for soft chapati, fulka, and Indian home cooking.</p>
-            <p style="font-size: 1rem; margin-top: 1.5rem; letter-spacing: 0.7px; opacity: 0.95;">Stone-milled • Nutrient-rich • Crafted to order</p>
+        <div class="slideshow-container">
+            <div class="slide active">
+                <img src="images/slideshow/AM_Slide1.png" alt="ArogyaMill slideshow image 1">
+            </div>
+            <div class="slide">
+                <img src="images/slideshow/AM_Slide2.png" alt="ArogyaMill slideshow image 2">
+            </div>
+            <div class="slide">
+                <img src="images/slideshow/AM_Slide3.png" alt="ArogyaMill slideshow image 3">
+            </div>
+            <div class="slide-controls" aria-label="Slide navigation"></div>
         </div>
     </section>
     
@@ -398,5 +484,46 @@
     <footer>
         <p>&copy; 2024 ArogyaMill. All rights reserved.</p>
     </footer>
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const controls = document.querySelector('.slide-controls');
+        let currentSlide = 0;
+        let slideInterval;
+
+        function createDots() {
+            slides.forEach((slide, index) => {
+                const dot = document.createElement('button');
+                dot.type = 'button';
+                dot.className = 'slide-dot';
+                dot.setAttribute('aria-label', `Show slide ${index + 1}`);
+                dot.dataset.slide = index;
+                dot.addEventListener('click', () => showSlide(index));
+                controls.appendChild(dot);
+            });
+        }
+
+        function setActiveDot(index) {
+            const dots = controls.querySelectorAll('.slide-dot');
+            dots.forEach((dot, dotIndex) => {
+                dot.classList.toggle('active', dotIndex === index);
+            });
+        }
+
+        function showSlide(index, resetTimer = true) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (index + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+            setActiveDot(currentSlide);
+
+            if (resetTimer) {
+                clearInterval(slideInterval);
+                slideInterval = setInterval(() => showSlide(currentSlide + 1, false), 4500);
+            }
+        }
+
+        createDots();
+        setActiveDot(currentSlide);
+        slideInterval = setInterval(() => showSlide(currentSlide + 1, false), 4500);
+    </script>
 </body>
 </html>
