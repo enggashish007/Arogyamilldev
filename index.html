@@ -243,6 +243,25 @@
             box-shadow: 0 20px 50px rgba(45, 47, 50, 0.08);
             padding: 4rem 3rem;
         }
+
+        .about ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            max-width: 850px;
+            text-align: left;
+        }
+
+        .about li {
+            margin: 0.85rem 0;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .highlight {
+            color: #3d7a4d;
+            font-weight: 700;
+        }
         
         .products {
             background-color: transparent;
@@ -303,6 +322,7 @@
         }
         
         .product {
+            position: relative;
             background: rgba(255,255,255,0.94);
             padding: 1.8rem;
             border-radius: 18px;
@@ -311,6 +331,27 @@
             transition: all 0.35s ease;
             border: 1px solid rgba(145, 130, 99, 0.18);
             backdrop-filter: blur(12px);
+        }
+
+        .product .badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(61, 122, 77, 0.18); /* translucent background only */
+            color: #ffffff; /* fully opaque text for contrast */
+            text-shadow: 0 1px 2px rgba(0,0,0,0.45);
+            border: 1px solid rgba(61, 122, 77, 0.24);
+            padding: 0.35rem 0.85rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+        
+        .product.coming-soon {
+            overflow: hidden;
         }
         
         .product:hover {
@@ -403,7 +444,7 @@
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="#about">Vision</a></li>
                 <li><a href="#products">Products</a></li>
                 <li><a href="#whatsapp" class="whatsapp-nav">📞 Order on WhatsApp</a></li>
                 <li><a href="#delivery">Delivery Areas</a></li>
@@ -430,12 +471,12 @@
     <section id="about" class="about">
         <h2>Our Vision</h2>
         <ul>
-            <li>🌾 Reviving India’s traditional nutrition wisdom through slow, cold-pressed Vedik stone milling.</li>
-            <li>🌾 Fresh flour milled only after your order for maximum freshness and real taste.</li>
-            <li>🌾 Preserving natural fiber, protein, iron, zinc, magnesium, B vitamins, and wheat germ oils.</li>
-            <li>🌾 Supporting farmers through direct sourcing and transparent practices.</li>
-            <li>🌾 Ensuring purity with naturally stored, carefully cleaned grains and no harmful chemicals.</li>
-            <li>🌾 Growing Arogya across homes with honest, freshly milled, nutrient-rich foods.</li>
+            <li>🌾 Reviving India’s traditional nutrition wisdom through slow, <span class="highlight">cold-pressed Vedik stone milling</span>.</li>
+            <li>🌾 Fresh flour <span class="highlight">milled only after your order</span> for maximum freshness and real taste.</li>
+            <li>🌾 <span class="highlight">Preserving essential nutrients</span> natural fiber, protein, iron, zinc, magnesium, B vitamins, and wheat germ oils.</li>
+            <li>🌾 <span class="highlight">Supporting farmers</span> through direct sourcing and transparent practices.</li>
+            <li>🌾 <span class="highlight">Ensuring purity</span> with naturally stored, carefully cleaned grains and no harmful chemicals.</li>
+            <li>🌾 <span class="highlight">Growing Arogya</span> across homes with honest, freshly milled, nutrient-rich foods.</li>
         </ul>
     </section>
     
@@ -444,17 +485,20 @@
         <div class="products-grid">
             <div class="product">
                 <h3>Whole Wheat Flour</h3>
-                <p>Available now — nutritious and versatile flour perfect for soft chapatis, fulkas, and rotis.</p>
+                <p>nutritious and versatile flour perfect for soft chapatis, fulkas, and rotis.</p>
             </div>
-            <div class="product">
+            <div class="product coming-soon">
+                <span class="badge">Launching soon</span>
                 <h3>Multi-Grain Flour</h3>
-                <p>Coming soon — great for wholesome Indian breads and everyday family meals.</p>
+                <p>great for wholesome Indian breads and everyday family meals.</p>
             </div>
-            <div class="product">
+            <div class="product coming-soon">
+                <span class="badge">Launching soon</span>
                 <h3>Customized Flour</h3>
-                <p>Coming soon — personalized blends tailored for your family’s taste, nutrition, and cooking style.</p>
+                <p>personalized blends tailored for your family’s taste, nutrition, and cooking style.</p>
             </div>
-            <div class="product">
+            <div class="product coming-soon">
+                <span class="badge">Launching soon</span>
                 <h3>Specialty Flours</h3>
                 <p>High protein, 100% gluten-free, and low GI flours for healthier everyday meals.</p>
             </div>
@@ -483,7 +527,7 @@
         <div class="contact-info">
             <p>📧 Email: <strong>support@arogyamill.com</strong></p>
             <p>💬 WhatsApp: <strong>+91 9251234921</strong></p>
-            <p>📍 Address: No. 76/3, Sharadhamma Building, Shop No. 10, Near Indian Oil Petrol Bunk, Mylasandra, Bengaluru - 560068</p>
+            <p>📍 Sharadhamma Building, Shop No. 10, Mylasandra, Bengaluru - 560068</p>
         </div>
     </section>
     
